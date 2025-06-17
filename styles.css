@@ -1,0 +1,122 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif
+}
+
+.index-panel {
+    position: relative;
+    width: 300px;
+    min-width: 50px;
+    background-color: #9ed380;
+    padding: 20px;
+    overflow: auto;
+    transition: width 0.3s;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.index-panel.collapsed {
+    width: 30px;
+    padding: 10px 5px;
+}
+
+.index-panel .content {
+    opacity: 1;
+    transition: opacity 0.3s;
+    width: 100%;
+}
+
+.index-panel.collapsed .content {
+    opacity: 0;
+}
+
+.resize-handle {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    cursor: col-resize;
+}
+
+.resize-handle:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.toggle-button {
+    position: absolute;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 30px;
+    background-color: #9ed380;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle-button::after {
+    content: "◄";
+    font-size: 10px;
+}
+
+.index-panel.collapsed .toggle-button::after {
+    content: "►";
+}
+
+.index-panel ul {
+    list-style: none;
+    padding: 0;
+}
+
+.index-panel li {
+    margin: 10px 0;
+}
+
+.container {
+    display: flex;
+    height: 100vh; /* Use viewport height to make it occupy full height */
+    justify-content: center;
+}
+
+.iframe-container {
+    flex: 6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    overflow: auto; /* in case iframe content is bigger than container */
+}
+
+.notebook-display {
+    max-width: 1200px;
+    width: 100%; /* will occupy full width until max-width */
+    height: 90vh; /* adjust height as required */
+    border: none;
+}
+
+.notebook-details {
+    font-size: 0.8em; /* Adjust to your preferred size */
+    margin-top: 4px;
+}
+
+.notebook-details .title {
+    font-weight: bold;
+}
+
+.notebook-details .subtitles {
+    list-style-type: none; /* removes bullet points */
+    padding-left: 0;
+    margin-top: 2px;
+}
+
+.notebook-details .subtitles li {
+    font-weight: normal;
+}
